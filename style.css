@@ -1,0 +1,551 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Anuphan', sans-serif;
+
+    background: linear-gradient(
+        135deg,
+        #FFF0F3 0%,
+        #ffaec5 55%,
+        #FFAD79 100%
+    );
+
+    background-attachment: fixed;
+    color: #513430;
+
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#app {
+    width: 90%;
+    max-width: 750px;
+    min-height: 100vh;
+
+    padding: 90px 35px 25px;
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#gameHeader {
+    margin-bottom: 0;
+}
+
+#gameHeader h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+#gameHeader p {
+    margin-top: 8px;
+    font-size: 1rem;
+}
+
+#homeScreen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex: 1;
+    min-height: 0;
+
+    transform: translateY(-90px);
+}
+
+#startButton {
+    padding: 19px 60px;
+
+    font-size: 1.8rem;
+    font-family: inherit;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    background: rgba(255, 255, 255, 0.35);
+    color: #513430;
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+
+    backdrop-filter: blur(10px);
+}
+
+#startButton:hover {
+    background: rgba(255, 255, 255, 0.65);
+    transform: translateY(-2px);
+    transition: 0.2s ease;
+}
+
+#partScreen {
+    text-align: center;
+    position: relative;
+    top: 40px;
+}
+
+#partScreen h2 {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: #513430;
+}
+
+#partAButton,
+#partBButton {
+    font-family: inherit;
+    font-size: 1.3rem;
+    font-weight: 600;
+
+    color: #513430;
+    background: rgba(255, 255, 255, 0.35);
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+
+    margin-left: 40px;
+    padding: 16px 37px;
+}
+
+#partScreen button {
+    margin: 0 20px;
+    position: relative;
+    top: 20px;
+}
+
+#partAButton:hover,
+#partBButton:hover {
+    background: rgba(255, 255, 255, 0.65);
+    transform: translateY(-2px);
+    transition: 0.2s ease;
+}
+
+#gameScreen {
+    position: relative;
+    top: 20px;
+}
+
+#questionText {
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    line-height: 1.6;
+}
+
+#gameInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+
+    margin-bottom: 10px;
+}
+
+#gameInfo p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+#answerArea {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+#answerArea button {
+    width: 100%;
+    padding: 18px 20px;
+
+    font-size: 1.1rem;
+    font-weight: 450;
+    font-family: inherit;
+
+    color: #513430;
+    background: rgba(255, 255, 255, 0.35);
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+
+    position: relative;
+    top: 20px;
+}
+
+#answerArea button:hover {
+    background: rgba(255, 255, 255, 0.65);
+    transform: translateY(-2px);
+    transition: 0.2s ease;
+}
+
+#slotsArea {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    margin-top: 10px;
+}
+
+#choicesArea {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.order-slot {
+    width: 100%;
+    max-width: 850px;
+    min-height: 45px;
+
+    font-weight: 600;
+    padding: 6px 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(255, 255, 255, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+
+    backdrop-filter: blur(10px);
+    color: #f8f6f6;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.choice-item {
+    width: fit-content;
+    max-width: 100%;
+    min-height: 48px;
+
+    padding: 14px 20px;
+
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+
+    color: #513430;
+    background: rgba(255, 255, 255, 0.35);
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+
+    backdrop-filter: blur(10px);
+    cursor: grab;
+
+    transition: transform 0.2s ease;
+}
+
+.choice-item:hover {
+    background: rgba(225, 225, 225, 0.65);
+    transform: translateY(-2px);
+}
+
+#app.part-b {
+    padding-top: 45px;
+}
+
+#app.part-b #gameScreen {
+    top: 0;
+}
+
+#resultScreen {
+    text-align: center;
+    position: relative;
+    top: 40px;
+}
+
+#resultScreen h2 {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: #513430;
+}
+
+#finalScoreText {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #513430;
+    margin-bottom: 25px;
+}
+
+#resultRetryButton,
+#resultHomeButton {
+    padding: 16px 30px;
+
+    font-size: 1.3rem;
+    font-family: inherit;
+    font-weight: 600;
+
+    color: #513430;
+    background: rgba(255, 255, 255, 0.35);
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+#resultRetryButton:hover,
+#resultHomeButton:hover {
+    background: rgba(255, 255, 255, 0.65);
+    transform: translateY(-2px);
+}
+
+#resultScreen button {
+    margin: 0 20px;
+    position: relative;
+    top: 20px;
+}
+
+#resultScreen p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #513430;
+
+    position: relative;
+    top: 10px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 601px) {
+    
+    #app {
+        width: 95%;
+        min-height: 100vh;
+        padding: 35px 14px 25px;
+    }
+
+    #app.part-b {
+        padding-top: 35px;
+    }
+ 
+    #gameHeader {
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    #gameHeader h1 {
+        font-size: clamp(1.15rem, 5vw, 1.7rem);
+        white-space: nowrap;
+        line-height: 1.2;
+    }
+
+    #gameHeader p {
+        font-size: clamp(0.75rem, 2.5vw, 0.9rem);
+    }
+
+    #app.home-page {
+        justify-content: center;
+    }
+
+    #app.home-page #homeScreen {
+        flex: 0 0 auto;
+        min-height: 0;
+
+        margin-top: 25px;
+        margin-bottom: 0;
+
+        transform: none;
+    }
+
+    #startButton {
+        padding: 12px 38px;
+        font-size: clamp(1rem, 4vw, 1.2rem);
+    }
+
+    #partScreen {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        gap: 12px;
+
+        position: relative;
+        top: 0;
+    }
+
+    #partScreen h2 {
+        font-size: clamp(1.1rem, 4vw, 1.3rem);
+        margin: 0 0 4px;
+    }
+
+    #partScreen button {
+        width: min(100%, 300px);
+
+        margin: 0;
+        padding: 12px 16px;
+
+        font-size: clamp(0.9rem, 3.5vw, 1rem);
+
+        top: 0;
+    }
+
+
+    #gameScreen {
+        top: 0;
+    }
+
+    #questionText {
+        font-size: clamp(1rem, 3.8vw, 1.1rem);
+        line-height: 1.5;
+    }
+
+    #gameInfo {
+        gap: clamp(12px, 4vw, 35px);
+        flex-wrap: wrap;
+    }
+
+    #answerArea button {
+        padding: 14px 16px;
+        font-size: clamp(0.95rem, 3.5vw, 1.1rem);
+        top: 0;
+    }
+
+    #slotsArea {
+        gap: 6px;
+    }
+
+    #choicesArea {
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .order-slot {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .choice-item {
+        padding: 12px 16px;
+        font-size: clamp(0.9rem, 3.5vw, 1rem);
+    }
+  
+    #resultScreen {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        gap: 12px;
+        top: 0;
+    }
+
+    #resultScreen h2 {
+        font-size: clamp(1.2rem, 4.5vw, 1.4rem);
+        margin: 0;
+    }
+
+    #resultScreen p {
+        font-size: clamp(0.9rem, 3.5vw, 1rem);
+        top: 0;
+        margin: 0;
+    }
+
+    #resultScreen button {
+        width: min(100%, 280px);
+
+        padding: 12px 18px;
+        margin: 0;
+
+        font-size: 1rem;
+        top: 0;
+    }
+}
+
+@media (max-width: 1200px) {
+
+    body {
+        min-height: 100vh;
+        min-height: 100svh;
+        align-items: stretch;
+    }
+
+    #app {
+        width: min(92%, 750px);
+        min-height: 100vh;
+        min-height: 100svh;
+
+        padding: clamp(24px, 5vh, 60px)
+                 clamp(14px, 4vw, 35px);
+
+        margin-left: auto;
+        margin-right: auto;
+
+        justify-content: safe center;
+    }
+
+    #app.home-page {
+        justify-content: center;
+    }
+
+    #app.home-page #homeScreen {
+        flex: 0 0 auto;
+        min-height: 0;
+
+        margin-top: clamp(22px, 5vh, 48px);
+        margin-bottom: 0;
+
+        transform: none;
+    }
+
+    #partScreen {
+        position: static;
+        top: auto;
+
+        margin-top: clamp(20px, 4vh, 40px);
+    }
+
+    #partScreen button {
+        top: 0;
+    }
+
+    #gameScreen,
+    #app.part-b #gameScreen {
+        position: static;
+        top: auto;
+
+        margin-top: clamp(20px, 4vh, 40px);
+    }
+
+    #answerArea button {
+        top: 0;
+    }
+
+    #app.part-b {
+        padding-top: clamp(24px, 5vh, 60px);
+    }
+
+    #resultScreen {
+        position: static;
+        top: auto;
+
+        margin-top: clamp(20px, 4vh, 40px);
+    }
+
+    #resultScreen button {
+        top: 0;
+    }
+
+    #resultScreen p {
+        top: 0;
+    }
+}

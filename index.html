@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithm Adventure V.2</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main id="app" class="home-page">
+
+        <header id="gameHeader">
+            <h1>Algorithm Adventure</h1>
+            <p id="tagline">Let's explore the world of algorithms!</p>
+        </header>
+
+        <section id="homeScreen">
+            <button id="startButton">START</button>
+        </section>
+        
+        <section id="partScreen" hidden>
+            <h2>Select Your Part</h2>
+            <button id="partAButton">Quiz Challenge</button>
+            <button id="partBButton">Algorithm Order</button>    
+        </section>
+
+        <section id="gameScreen" hidden>
+            <h2 id="questionText"></h2>
+
+            <div id="gameInfo">
+                <p id="progressText"></p>
+                <p id="scoreText">Score: 0</p>
+            </div>
+
+            <div id="answerArea"></div>
+        </section>
+
+        <section id="resultScreen" hidden>
+            <h2>Game Complete!</h2>
+            <p id="finalScoreText">Final Score: 0</p>
+            <button id="resultRetryButton">Try Again</button>
+            <button id="resultHomeButton">Back to home</button>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
+
+
+        
+
+    
+
+
